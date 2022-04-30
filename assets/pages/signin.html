@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="../css/style.css">    
+
+        <script src="https://kit.fontawesome.com/238505cf66.js" crossorigin="anonymous"></script>
+        <script src="../js/sweetAlert.js"></script>
+        <script src="../js/google.js"></script>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>   
+        <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+    </head>
+    <body>
+        <div class="formulario">
+            <form class="form-cadastro">
+                <div class="img-formulario">
+                    <img src="../img/sign-in-img.svg" alt="">
+                </div>
+
+                <div class="form">
+                    <h3 class="text-login" align="center">LOGIN</h3>
+                    <div class="div-email">
+                        <div class="div-email-icon"><i class="fa-regular fa-user"></i></div>
+                        <input type="text" name="email" id="email" placeholder="Email">
+                    </div>
+                    <div class="div-password">
+                        <div class="div-password-text">
+                            <div class="div-password-icon"><i class="fa-solid fa-lock"></i></div>
+                            <input type="password" name="password" id="password" placeholder="Password">
+                        </div>
+                        <div class="texts-password">
+                            <div>
+                                <input type="checkbox" name="" id="remember">
+                                <label class="text-remember" for="remember">Remember me</label>
+                            </div>
+                            <div class="text-forgot">Forgot password</div>
+                        </div>
+                    </div>
+                    <div class="div-login">
+                        <input type="button" id="login" value="LOGIN" onclick="formValidation()">
+                    </div>
+                    <div class="div-hr-form">
+                        <hr class="hr-form">
+                    </div>
+                    <div align="center" class="sign-up">
+                        <a href="" class="sign-up-with">SIGN UP WITH</a>
+                        <div class="social-sign-up">
+                            <div id="buttonDiv"></div>
+                        </div>
+                        <div class="or">
+                            OR
+                        </div>
+                        <a href="signup.html" class="sign-up-with">SIGN UP</a>
+                    </div>
+                </div>
+            </form>
+        </div>     
+        
+        <p id="items"></p>
+
+        <script src="../js/script.js"></script>
+    </body>
+</html>
