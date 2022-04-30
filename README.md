@@ -1,0 +1,13 @@
+# Saúde no Bolso
+
+***
+
+Saúde no Bolso is a software that aims to help users with facilitating tools for health systems, such as scheduling appointments and an emergency button.
+
+## Technologies
+***
+A list of technologies used within the project:
+* HTML (https://www.w3schools.com/html/html_examples.asp): Version HTML 5
+* CSS (https://www.w3schools.com/css/css_examples.asp): Version 4.15
+* JavaScript (https://www.javascript.com/): Version ES2015
+* SweetAlert2 (https://sweetalert2.github.io/): Version 11.4.10
