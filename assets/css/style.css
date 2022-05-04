@@ -42,7 +42,7 @@ header ul{
 .menu img:hover{
     filter: drop-shadow(rgba(0, 0, 0, 0.233) 0px 0px 5px);
 }
-.hr{
+.div-hr{
     height: 4em;
     display: grid;
     place-items: center;
