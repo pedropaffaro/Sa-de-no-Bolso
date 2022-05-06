@@ -1,12 +1,4 @@
-$offWhite: #f8f8ff;
-$black: #000;
-$red: #8c1b2f;
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+@import 'base';
 
 body{
     background-color: $offWhite;
@@ -20,7 +12,7 @@ header{
     padding: 0 3em;
     background-color: $offWhite;
 
-    box-shadow: rgba(0, 0, 0, 0.13) 0px 0px 10px;
+    @include box-shadow(rgba(0, 0, 0, 0.13));
 
     ul, .div-header{
         display: flex;
@@ -36,8 +28,7 @@ header{
 
 .menu{
     li{
-       display: grid;
-       place-items: center; 
+       @extend .flex-center;
     }
     
     img{
@@ -56,8 +47,8 @@ header{
     
     .div-hr{
         height: 4em;
-        display: grid;
-        place-items: center;
+        
+        @extend .flex-center;
     
         #hr{
             line-height: 4em;
@@ -69,9 +60,9 @@ header{
         width: 5em;
         height: 2em;
     
-        background-color: var(--primary);
+        background-color: $offWhite;
         border: 0;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        @include box-shadow-button(rgba(100, 100, 111, 0.2));
         border-radius: 5px;
         font-size: 1em;
         cursor: pointer;
@@ -122,5 +113,167 @@ header{
     .img-div img{
         width: 100%;
         height: 15em;
+    }
+}
+
+.container-formulario{
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+
+    @extend .flex-center;
+
+    flex-direction: row;
+
+    .form-cadastro{
+        width: 40em;
+        height: 20em;
+
+        @include box-shadow(rgba(100, 100, 111, 0.2));
+
+        border-radius: 5px;
+        background-color: $offWhite;
+        display: flex;
+        padding: 40px;
+    }
+
+    .img-formulario{
+        width: 50%;
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .form{
+        width: 50%;
+
+        .text-login{
+            margin: 1em 0;
+        }
+
+        .div-email{
+            @extend .flex-center;
+
+            flex-direction: row;
+            margin-bottom: 1.7em;
+        }
+
+        .div-email-icon, .div-password-icon{
+            width: 1.5em;
+            height: 1.5em;
+            background-color: $red;
+            
+            @extend .flex-center;
+        
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        .div-email-icon, .div-password-icon{
+            i{
+                filter: invert(100%);
+            }
+        }
+
+        #email, #password, #password-repeat{
+            width: 17em;
+            height: 2.7em;
+            border: 0;
+            background-color: $lighterRed;
+            color: $offWhite;
+            padding-left: 1em;
+        
+            border-radius: 0px 5px 5px 0px;
+        }
+
+        #email::placeholder, #password::placeholder, #password-repeat::placeholder{
+            color: $offWhite;
+            font-size: 1.2em;
+        }
+
+        .div-password{
+            margin-bottom: 1em;
+            
+            @extend .flex-center;
+
+            flex-direction: column;
+
+            .div-password-text{
+                @extend .flex-center;
+
+                flex-direction: row;
+                margin-bottom: .7em;
+            }
+        }
+
+        .texts-password{
+            @extend .flex-space-between;
+
+            font-size: 0.9em;
+            width: 12.7em;
+        }
+
+        .text-remember, .text-forgot{
+            font-size: 0.7em;
+        }
+
+        .div-login{
+            @extend .flex-center;
+
+            #login{
+                width: 21em;
+                height: 2.5em;
+                border: none;
+
+                @include box-shadow-button(rgba(100, 100, 111, .4));
+
+                background-color: $red;
+                border-radius: 10px;
+                color: $offWhite;
+                margin-bottom: 2.5em;
+                cursor: pointer;
+            
+                transition: .2s;
+            }
+
+            #login:hover{
+                @include box-shadow(rgba(0, 0, 0, 0.13));
+            }
+        }
+
+        .div-hr-form{
+            @extend .flex-center;
+
+            .hr-form{
+                width: 200px; //must change for 'em'
+            }
+        }
+
+        .sign-up{
+            .sign-up-with{
+                text-decoration: none;
+                color: $black;
+                font-size: .7em;
+            }
+
+            .social-sign-up{
+                width: 5em;
+                margin-top: .5em;
+                margin-bottom: .5em;
+            }
+
+            .or{
+                font-size: .6em;
+            }
+        }
+
+        .div-password-r-text{
+            @extend .flex-center;
+
+            flex-direction: row;
+            margin-top: 1em;
+            margin-bottom: .5em;
+        }
     }
 }

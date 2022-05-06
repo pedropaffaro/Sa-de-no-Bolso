@@ -1,0 +1,30 @@
+$offWhite: #f8f8ff;
+$black: #000;
+$red: #8c1b2f;
+$lighterRed: #8c1b3079;
+
+@mixin box-shadow($color){
+    box-shadow: 0px 0px 10px $color;
+}
+
+@mixin box-shadow-button($color){
+    box-shadow: 0px 7px 29px 0px $color;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-space-between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

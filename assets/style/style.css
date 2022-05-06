@@ -4,6 +4,18 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.flex-center, .container-formulario .form .div-password-r-text, .container-formulario .form .div-hr-form, .container-formulario .form .div-login, .container-formulario .form .div-password .div-password-text, .container-formulario .form .div-password, .container-formulario .form .div-email-icon, .container-formulario .form .div-password-icon, .container-formulario .form .div-email, .container-formulario, .menu .div-hr, .menu li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-space-between, .container-formulario .form .texts-password {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 body {
   background-color: #f8f8ff;
   font-size: 1.5rem;
@@ -15,7 +27,7 @@ header {
   height: 4em;
   padding: 0 3em;
   background-color: #f8f8ff;
-  box-shadow: rgba(0, 0, 0, 0.13) 0px 0px 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
 }
 header ul, header .div-header {
   display: flex;
@@ -27,10 +39,6 @@ header ul {
   justify-content: space-between;
 }
 
-.menu li {
-  display: grid;
-  place-items: center;
-}
 .menu img {
   width: 11em;
   transition: 0.4s;
@@ -44,8 +52,6 @@ header ul {
 }
 .menu .div-hr {
   height: 4em;
-  display: grid;
-  place-items: center;
 }
 .menu .div-hr #hr {
   line-height: 4em;
@@ -54,9 +60,9 @@ header ul {
 .menu #btn-login, .menu #btn-signup {
   width: 5em;
   height: 2em;
-  background-color: var(--primary);
+  background-color: #f8f8ff;
   border: 0;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
   border-radius: 5px;
   font-size: 1em;
   cursor: pointer;
@@ -100,6 +106,112 @@ header ul {
 .container .img-div img {
   width: 100%;
   height: 15em;
+}
+
+.container-formulario {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  flex-direction: row;
+}
+.container-formulario .form-cadastro {
+  width: 40em;
+  height: 20em;
+  box-shadow: 0px 0px 10px rgba(100, 100, 111, 0.2);
+  border-radius: 5px;
+  background-color: #f8f8ff;
+  display: flex;
+  padding: 40px;
+}
+.container-formulario .img-formulario {
+  width: 50%;
+}
+.container-formulario .img-formulario img {
+  width: 100%;
+  height: 100%;
+}
+.container-formulario .form {
+  width: 50%;
+}
+.container-formulario .form .text-login {
+  margin: 1em 0;
+}
+.container-formulario .form .div-email {
+  flex-direction: row;
+  margin-bottom: 1.7em;
+}
+.container-formulario .form .div-email-icon, .container-formulario .form .div-password-icon {
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #8c1b2f;
+  border-radius: 5px 0px 0px 5px;
+}
+.container-formulario .form .div-email-icon i, .container-formulario .form .div-password-icon i {
+  filter: invert(100%);
+}
+.container-formulario .form #email, .container-formulario .form #password, .container-formulario .form #password-repeat {
+  width: 17em;
+  height: 2.7em;
+  border: 0;
+  background-color: rgba(140, 27, 48, 0.4745098039);
+  color: #f8f8ff;
+  padding-left: 1em;
+  border-radius: 0px 5px 5px 0px;
+}
+.container-formulario .form #email::placeholder, .container-formulario .form #password::placeholder, .container-formulario .form #password-repeat::placeholder {
+  color: #f8f8ff;
+  font-size: 1.2em;
+}
+.container-formulario .form .div-password {
+  margin-bottom: 1em;
+  flex-direction: column;
+}
+.container-formulario .form .div-password .div-password-text {
+  flex-direction: row;
+  margin-bottom: 0.7em;
+}
+.container-formulario .form .texts-password {
+  font-size: 0.9em;
+  width: 12.7em;
+}
+.container-formulario .form .text-remember, .container-formulario .form .text-forgot {
+  font-size: 0.7em;
+}
+.container-formulario .form .div-login #login {
+  width: 21em;
+  height: 2.5em;
+  border: none;
+  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.4);
+  background-color: #8c1b2f;
+  border-radius: 10px;
+  color: #f8f8ff;
+  margin-bottom: 2.5em;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.container-formulario .form .div-login #login:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+.container-formulario .form .div-hr-form .hr-form {
+  width: 200px;
+}
+.container-formulario .form .sign-up .sign-up-with {
+  text-decoration: none;
+  color: #000;
+  font-size: 0.7em;
+}
+.container-formulario .form .sign-up .social-sign-up {
+  width: 5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.container-formulario .form .sign-up .or {
+  font-size: 0.6em;
+}
+.container-formulario .form .div-password-r-text {
+  flex-direction: row;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
 /*# sourceMappingURL=style.css.map */
