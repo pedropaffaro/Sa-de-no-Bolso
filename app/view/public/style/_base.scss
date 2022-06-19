@@ -1,5 +1,6 @@
 $offWhite: #f8f8ff;
 $black: #000;
+$grey: #d3d3d3;
 $red: #8c1b2f;
 $lighterRed: #8c1b3079;
 
@@ -27,4 +28,33 @@ $lighterRed: #8c1b3079;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.grid-center{
+    display: grid;
+    place-items: center;
+}
+
+.column{
+    flex-direction: column;
+}
+
+@mixin btn($width, $marginTop, $marginBottom, $color, $colorFont, $colorBoxShadow){
+    width: $width;
+    height: 2em;
+    margin-top: $marginTop;
+    margin-bottom: $marginBottom;
+    margin-left: 1em; //must change
+    
+    background-color: $color;
+    color: $colorFont;
+
+    @include box-shadow-button($colorBoxShadow);
+
+    border: 0;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+
+    transition: .2s;
 }

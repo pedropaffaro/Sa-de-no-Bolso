@@ -11,7 +11,7 @@ function buttonLogin(){
     })
 
     btnLogin.addEventListener("click", () => {
-        window.open("signin.html"); 
+        window.open("signin.php"); 
     })
 }
    
@@ -28,7 +28,7 @@ function buttonSignUp(){
     })
 
     btnSignUp.addEventListener("click", () => {
-        window.open("signup.html"); 
+        window.open("signup.php"); 
     })
 }
 
@@ -38,6 +38,7 @@ function darkMode(){
     var menu = document.querySelector("#menu");
     var btnSignIn = document.getElementById("btn-login");
     var btnSignUp = document.getElementById("btn-signup");
+    var linkAbout = document.getElementById("link-about");
 
     if(switchBtn.value == 1){
         localStorage.setItem('theme', 'dark');
@@ -57,6 +58,8 @@ function darkMode(){
     
         btnSignUp.style.backgroundColor = "#222";
         btnSignUp.style.color = "#f8f8ff";
+
+        linkAbout.style.color = "#f8f8ff";
     }
     else{
         localStorage.setItem('theme', 'light');
@@ -78,39 +81,60 @@ function darkMode(){
         btnSignUp.style.transitionDuration = ".2s";
         btnSignUp.style.backgroundColor = "#f8f8ff";
         btnSignUp.style.color = "#000";
+
+        linkAbout.style.color = "#000";
     }
 }
 
 function darkTheme(){
     var page = document.getElementById("page");
+    var menu = document.querySelector("#menu");
     var forms = document.querySelector(".form-cadastro");
     var textSignUpWith = document.querySelectorAll(".sign-up-with");
+    var linkAbout = document.querySelector("#link-about");
+
+    const switchBtn = document.getElementById("switch");
 
     if(localStorage.getItem('theme') == 'dark'){
         page.style.transitionDuration = ".2s";
         page.style.backgroundColor = "rgba(37, 35, 35, 0.897)";
         page.style.color = "#f8f8ff";
+
+        menu.style.transitionDuration = ".2s";
+        menu.style.backgroundColor = "rgba(37, 35, 35, 0.897)";
         
         forms.style.backgroundColor = "#222";
         forms.style.color = "#f8f8ff";
 
         textSignUpWith[0].style.color = "#f8f8ff";
         textSignUpWith[1].style.color = "#f8f8ff";
+
+        linkAbout.style.color = "#f8f8ff";
+
+        switchBtn.value = 1;
     }
     else{
         page.style.transitionDuration = ".2s";
         page.style.backgroundColor = "#f8f8ff";
         page.style.color = "rgba(37, 35, 35, 0.897)";
+
+        menu.style.transitionDuration = ".2s";
+        menu.style.backgroundColor = "#f8f8ff";
+
+        switchBtn.value = 0;
     }
 }
 
-function formValidation(){
-    var email = document.querySelector("#email");
+const submitSignUp = getElementById("signup");
+submitSignUp.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    var cpf = document.querySelector("#cpf");
     var password = document.querySelector("#password");
 
-    if(email.value.length < 8 || email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1){
+    if(cpf.value.length < 11 || cpf.value.indexOf("-") == -1){
         Swal.fire({
-            title: "Email inválido!",
+            title: "CPF inválido!",
             icon: 'warning',
             text: "Preencha o campo com um email válido!",
             confirmButtonColor: "#8C1B2F"
@@ -137,9 +161,11 @@ function formValidation(){
             })
         }
     }
-}
+})
 
 function formValidationSignUp(){
+    event.preventDefault();
+
     var email = document.querySelector("#email");
     var password = document.querySelector("#password");
     var passwordRepeat = document.querySelector("#password-repeat");
@@ -181,6 +207,8 @@ function formValidationSignUp(){
                     confirmButtonColor: "#8C1B2F"
                 })
             }
+
+            return true;
         }
     }
 }

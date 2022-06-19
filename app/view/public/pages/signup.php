@@ -5,26 +5,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign Up</title>
-        <link rel="stylesheet" href="../style/style.css">    
+        <link rel="stylesheet" href="../style/style.css">   
+        
+        <link rel="icon" type="image/x-icon" href="../../src/images/favicon.ico">
 
         <script src="https://kit.fontawesome.com/238505cf66.js" crossorigin="anonymous"></script>
-        <script src="../js/sweetAlert.js"></script>
-        <script src="../js/google.js"></script>
+        <script src="../scripts/sweetAlert.js"></script>
+        <script src="../scripts/google.js"></script>
         <script src="https://accounts.google.com/gsi/client" async defer></script>   
         <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     </head>
     <body id="page" onload="darkTheme()">
         <div class="container-formulario">
-            <form class="form-cadastro">
+            <form class="form-cadastro" method="POST" action="../../../controller/Patient-Control.php">
                 <div class="img-formulario">
-                    <img src="../img/sign-up-img.svg" alt="">
+                    <img src="../../src/images/sign-up-img.svg" alt="">
                 </div>
 
                 <div class="form">
                     <h3 class="text-login" align="center">SIGN UP</h3>
-                    <div class="div-email">
-                        <div class="div-email-icon"><i class="fa-regular fa-user"></i></div>
-                        <input type="text" name="email" id="email" placeholder="Email">
+                    <div class="div-cpf">
+                        <div class="div-cpf-icon"><i class="fa-regular fa-user"></i></div>
+                        <input type="text" name="cpf" id="cpf" placeholder="CPF">
+                    </div>
+                    <div class="div-name">
+                        <div class="div-name-icon"><i class="fa-regular fa-user"></i></div>
+                        <input type="text" name="name" id="name" placeholder="Nome">
                     </div>
                     <div class="div-password">
                         <div class="div-password-text">
@@ -33,7 +39,7 @@
                         </div>
                         <div class="div-password-r-text">
                             <div class="div-password-icon"><i class="fa-solid fa-lock"></i></div>
-                            <input type="password" name="password" id="password-repeat" placeholder="Repeat Password">
+                            <input type="password" name="password-repeat" id="password-repeat" placeholder="Repeat Password">
                         </div>
                         <div class="texts-password">
                             <div>
@@ -44,7 +50,7 @@
                         </div>
                     </div>
                     <div class="div-login">
-                        <input type="button" id="login" value="SIGN UP" onclick="formValidationSignUp()">
+                        <input type="submit" id="signup" value="SIGN UP">
                     </div>
                     <div class="div-hr-form">
                         <hr class="hr-form">
@@ -59,6 +65,6 @@
             </form>
         </div>        
 
-        <script src="../js/script.js"></script>
+        <script src="../scripts/script.js"></script>
     </body>
 </html>

@@ -4,7 +4,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.flex-center, .container-formulario .form .div-password-r-text, .container-formulario .form .div-hr-form, .container-formulario .form .div-login, .container-formulario .form .div-password .div-password-text, .container-formulario .form .div-password, .container-formulario .form .div-email-icon, .container-formulario .form .div-password-icon, .container-formulario .form .div-email, .container-formulario, .menu .div-hr, .menu li {
+.flex-center, .profile-page #profile-card-section, .profile-page, .container-formulario .form .div-password-r-text, .container-formulario .form .div-hr-form, .container-formulario .form .div-login, .container-formulario .form .div-password .div-password-text, .container-formulario .form .div-password, .container-formulario .form .div-cpf-icon, .container-formulario .form .div-password-icon, .container-formulario .form .div-cpf, .container-formulario, .menu .div-hr, .menu li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +14,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.grid-center, .profile-page #profile-card-section #profile-card, .grid-about-us .small-grid div, .grid-about-us .big-grid div, .grid-about-us .big-grid, .grid-about-us {
+  display: grid;
+  place-items: center;
+}
+
+.column {
+  flex-direction: column;
 }
 
 body {
@@ -33,7 +42,6 @@ header ul, header .div-header {
   display: flex;
   flex-direction: row;
   list-style: none;
-  line-height: 4em;
 }
 header ul {
   justify-content: space-between;
@@ -50,6 +58,14 @@ header ul {
   margin-left: 1em;
   margin-right: 1em;
 }
+.menu .txt-sobre a {
+  color: #000;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.menu .txt-sobre a:hover {
+  color: #8c1b2f !important;
+}
 .menu .div-hr {
   height: 4em;
 }
@@ -60,13 +76,17 @@ header ul {
 .menu #btn-login, .menu #btn-signup {
   width: 5em;
   height: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 1em;
   background-color: #f8f8ff;
+  color: #000;
+  box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.144);
   border: 0;
-  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
   border-radius: 5px;
   font-size: 1em;
   cursor: pointer;
-  margin-left: 1em;
+  transition: 0.2s;
 }
 .menu #btn-signup {
   width: 6em;
@@ -97,7 +117,8 @@ header ul {
 }
 
 .container {
-  width: 100vw;
+  width: 100vw-padding;
+  box-sizing: border-box;
   z-index: -1;
 }
 .container .slick-arrow {
@@ -105,7 +126,32 @@ header ul {
 }
 .container .img-div img {
   width: 100%;
+  box-sizing: border-box;
   height: 15em;
+}
+
+.section {
+  width: 100%;
+  box-sizing: border-box;
+}
+.section p {
+  width: 70%;
+  text-align: center;
+}
+.section #btn-marque-agora {
+  width: 8.5em;
+  height: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.7em;
+  margin-left: 1em;
+  background-color: #8c1b2f;
+  color: #f8f8ff;
+  box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.26);
+  border: 0;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .container-formulario {
@@ -136,20 +182,20 @@ header ul {
 .container-formulario .form .text-login {
   margin: 1em 0;
 }
-.container-formulario .form .div-email {
+.container-formulario .form .div-cpf {
   flex-direction: row;
   margin-bottom: 1.7em;
 }
-.container-formulario .form .div-email-icon, .container-formulario .form .div-password-icon {
+.container-formulario .form .div-cpf-icon, .container-formulario .form .div-password-icon {
   width: 1.5em;
   height: 1.5em;
   background-color: #8c1b2f;
   border-radius: 5px 0px 0px 5px;
 }
-.container-formulario .form .div-email-icon i, .container-formulario .form .div-password-icon i {
+.container-formulario .form .div-cpf-icon i, .container-formulario .form .div-password-icon i {
   filter: invert(100%);
 }
-.container-formulario .form #email, .container-formulario .form #password, .container-formulario .form #password-repeat {
+.container-formulario .form #cpf, .container-formulario .form #password, .container-formulario .form #password-repeat {
   width: 17em;
   height: 2.7em;
   border: 0;
@@ -158,7 +204,7 @@ header ul {
   padding-left: 1em;
   border-radius: 0px 5px 5px 0px;
 }
-.container-formulario .form #email::placeholder, .container-formulario .form #password::placeholder, .container-formulario .form #password-repeat::placeholder {
+.container-formulario .form #cpf::placeholder, .container-formulario .form #password::placeholder, .container-formulario .form #password-repeat::placeholder {
   color: #f8f8ff;
   font-size: 1.2em;
 }
@@ -177,7 +223,7 @@ header ul {
 .container-formulario .form .text-remember, .container-formulario .form .text-forgot {
   font-size: 0.7em;
 }
-.container-formulario .form .div-login #login {
+.container-formulario .form .div-login #login, .container-formulario .form .div-login #signup {
   width: 21em;
   height: 2.5em;
   border: none;
@@ -189,7 +235,7 @@ header ul {
   cursor: pointer;
   transition: 0.2s;
 }
-.container-formulario .form .div-login #login:hover {
+.container-formulario .form .div-login #login:hover, .container-formulario .form .div-login #signup:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
 }
 .container-formulario .form .div-hr-form .hr-form {
@@ -212,6 +258,83 @@ header ul {
   flex-direction: row;
   margin-top: 1em;
   margin-bottom: 0.5em;
+}
+
+.grid-about-us {
+  width: 100vw;
+  margin-top: 1em;
+  box-sizing: border-box;
+  padding: 0 2em;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+.grid-about-us .big-grid {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgba(140, 27, 48, 0.4745098039);
+  grid-row: span 2;
+}
+.grid-about-us .big-grid div {
+  padding: 1em;
+}
+.grid-about-us .big-grid div p {
+  margin-top: 0.5em;
+  text-align: justify;
+}
+.grid-about-us .small-grid {
+  width: 100%;
+  height: 100%;
+  color: #f8f8ff;
+  border-radius: 10px;
+  background-color: #8c1b2f;
+}
+.grid-about-us .small-grid div {
+  padding: 1em;
+}
+.grid-about-us .small-grid div p {
+  margin-top: 0.5em;
+  text-align: justify;
+}
+
+.profile-page {
+  width: auto;
+  height: 90vh;
+  box-sizing: border-box;
+}
+.profile-page #profile-card-section {
+  width: 80%;
+  height: 80%;
+  box-sizing: border-box;
+  background-color: #d3d3d3;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.profile-page #profile-card-section #profile-card {
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+}
+.profile-page #profile-card-section #profile-card .profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-page #profile-card-section #profile-card .profile .profile-picture {
+  width: 5em;
+  height: 5em;
+}
+.profile-page #profile-card-section #profile-card .profile .profile-picture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.profile-page #profile-card-section #profile-card .profile .profile-name {
+  margin-top: 1em;
+  width: 90%;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

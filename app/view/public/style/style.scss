@@ -18,7 +18,6 @@ header{
         display: flex;
         flex-direction: row;
         list-style: none;
-        line-height: 4em;
     }
 
     ul{
@@ -30,19 +29,34 @@ header{
     li{
        @extend .flex-center;
     }
-    
-    img{
-        width: 11em;
-        transition: .4s;
-    }
 
-    img:hover{
-        filter: drop-shadow(rgba(0, 0, 0, 0.233) 0px 0px 5px);
-    }
+        img{
+            width: 11em;
+            transition: .4s;
+        }
+    
+        img:hover{
+            filter: drop-shadow(rgba(0, 0, 0, 0.233) 0px 0px 5px);
+        }
 
     .txt-sobre{
         margin-left: 1em;
         margin-right: 1em;
+
+        a{
+            color: $black;
+            text-decoration: none;
+
+            transition: .2s;
+        }
+
+        a:hover{
+            color: $red !important;
+        }
+
+        // #link-about-us{
+        //     color: $red;
+        // }
     }
     
     .div-hr{
@@ -57,16 +71,7 @@ header{
     }
     
     #btn-login, #btn-signup{
-        width: 5em;
-        height: 2em;
-    
-        background-color: $offWhite;
-        border: 0;
-        @include box-shadow-button(rgba(100, 100, 111, 0.2));
-        border-radius: 5px;
-        font-size: 1em;
-        cursor: pointer;
-        margin-left: 1em;
+        @include btn(5em, 0, 0, $offWhite, $black, rgba(0, 0, 0, 0.144));
     }
     
     #btn-signup{
@@ -103,7 +108,8 @@ header{
 }
 
 .container{
-    width: 100vw;
+    width: 100vw - padding;
+    box-sizing: border-box;
     z-index: -1;
 
     .slick-arrow {
@@ -112,7 +118,22 @@ header{
 
     .img-div img{
         width: 100%;
+        box-sizing: border-box;
         height: 15em;
+    }
+}
+
+.section{
+    width: 100%;
+    box-sizing: border-box;
+
+    p{
+        width: 70%;
+        text-align: center;
+    }
+
+    #btn-marque-agora{
+        @include btn(8.5em, 0.5em, 0.7em, $red, $offWhite, rgba(0, 0, 0, 0.26));
     }
 }
 
@@ -153,14 +174,14 @@ header{
             margin: 1em 0;
         }
 
-        .div-email{
+        .div-cpf, .div-name{
             @extend .flex-center;
 
             flex-direction: row;
             margin-bottom: 1.7em;
         }
 
-        .div-email-icon, .div-password-icon{
+        .div-cpf-icon, .div-password-icon, .div-name-icon{
             width: 1.5em;
             height: 1.5em;
             background-color: $red;
@@ -170,13 +191,13 @@ header{
             border-radius: 5px 0px 0px 5px;
         }
 
-        .div-email-icon, .div-password-icon{
+        .div-cpf-icon, .div-password-icon{
             i{
                 filter: invert(100%);
             }
         }
 
-        #email, #password, #password-repeat{
+        #cpf, #name, #password, #password-repeat{
             width: 17em;
             height: 2.7em;
             border: 0;
@@ -187,7 +208,7 @@ header{
             border-radius: 0px 5px 5px 0px;
         }
 
-        #email::placeholder, #password::placeholder, #password-repeat::placeholder{
+        #cpf::placeholder, #name::placeholder, #password::placeholder, #password-repeat::placeholder{
             color: $offWhite;
             font-size: 1.2em;
         }
@@ -221,7 +242,7 @@ header{
         .div-login{
             @extend .flex-center;
 
-            #login{
+            #login, #signup{
                 width: 21em;
                 height: 2.5em;
                 border: none;
@@ -237,7 +258,7 @@ header{
                 transition: .2s;
             }
 
-            #login:hover{
+            #login:hover, #signup:hover{
                 @include box-shadow(rgba(0, 0, 0, 0.13));
             }
         }
@@ -275,5 +296,162 @@ header{
             margin-top: 1em;
             margin-bottom: .5em;
         }
+    }
+}
+
+.grid-about-us{
+    width: 100vw;
+    margin-top: 1em;
+    box-sizing: border-box;
+
+    padding: 0 2em;
+
+    @extend .grid-center;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+
+    .big-grid{
+        width: 100%;
+        height: 100%;
+        
+        @extend .grid-center;
+
+        border-radius: 10px;
+
+        background-color: $lighterRed;
+        grid-row: span 2;
+
+        div{
+            @extend .grid-center;
+
+            padding: 1em;
+
+            p{
+                margin-top: .5em;
+                text-align: justify;
+            }
+        }
+    }
+
+    .small-grid{
+        width: 100%;
+        height: 100%;
+        
+        color: $offWhite;
+
+        border-radius: 10px;
+
+        background-color: $red;
+
+        div{
+            @extend .grid-center;
+
+            padding: 1em;
+
+            p{
+                margin-top: .5em;
+                text-align: justify;
+            }
+        }
+    }
+}
+
+.profile-page{
+    width: auto;
+    height: 90vh;
+
+    @extend .flex-center;
+
+    box-sizing: border-box;
+
+    #profile-card-section{
+        width: 80%;
+        height: 80%;
+        box-sizing: border-box;
+    
+        background-color: $grey;
+    
+        @include box-shadow(rgba(0, 0, 0, 0.2));
+    
+        @extend .flex-center;
+
+        border-radius: 10px;
+    
+        #profile-card{
+            width: 100%;
+            height: 100%;
+    
+            @extend .grid-center;
+    
+            grid-template-columns: 1fr 2fr;
+            grid-gap: 20px;
+    
+            .profile{
+                width: 100%;
+    
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+    
+                .profile-picture{
+                    width: 5em;
+                    height: 5em;
+        
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+
+                .profile-name{
+                    margin-top: 1em;
+
+                    width: 90%;
+                    text-align: center;
+                }
+            }
+
+            .profile-information{
+                width: 100%;
+
+                div{
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    width: 100%;
+    background-color: $red;
+    color: $offWhite;
+
+    box-sizing: border-box;
+
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+
+    .contact{
+        .informations{
+            display: flex;
+            flex-direction: column;
+
+            margin-bottom: 1rem;
+        }
+    }
+
+    iframe{
+        width: 15rem;
+        height: 6rem;
+    }
+
+    .footer-map{
+        display: grid;
+        place-items: center;
+        margin-bottom: 1rem;
     }
 }
