@@ -13,4 +13,5 @@ A list of technologies used within the project:
 * Sass (https://sass-lang.com/) : Version 1.51.0 compiled with dart2js 2.16.2
 * JavaScript (https://www.javascript.com/): Version ES2015
 * SweetAlert2 (https://sweetalert2.github.io/): Version 11.4.10
-* Slick.js (https://kenwheeler.github.io/slick/): Version 1.9.0
+* JQuery Mask (https://igorescobar.github.io/jQuery-Mask-Plugin/): Version 1.14.16
+* API IBGE (https://servicodados.ibge.gov.br/api/docs/localidades#api-_)

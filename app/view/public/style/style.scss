@@ -53,10 +53,6 @@ header{
         a:hover{
             color: $red !important;
         }
-
-        // #link-about-us{
-        //     color: $red;
-        // }
     }
     
     .div-hr{
@@ -70,41 +66,45 @@ header{
         }
     }
     
-    #btn-login, #btn-signup{
+    #btn-login, #btn-signup, #btn-appointment{
         @include btn(5em, 0, 0, $offWhite, $black, rgba(0, 0, 0, 0.144));
     }
     
     #btn-signup{
         width: 6em;
     }
-    
-    #switch{
-        -webkit-appearance: none;
-        width: 51px;
-        height: 27px;
-        background-color: #e9e9ea;
-        border-radius: 16px;
-        padding: 2px;
-        margin-left: 1em;
-        transition: .2s;
+
+    #btn-appointment{
+        width: 8em;
     }
     
-    #switch::-webkit-slider-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-        width: 27px;
-        height: 27px;
-        border-radius: 50%; 
+    // #switch{
+    //     -webkit-appearance: none;
+    //     width: 51px;
+    //     height: 27px;
+    //     background-color: #e9e9ea;
+    //     border-radius: 16px;
+    //     padding: 2px;
+    //     margin-left: 1em;
+    //     transition: .2s;
+    // }
     
-        background: #fff;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 24%);
-        cursor: pointer;
-    }
+    // #switch::-webkit-slider-thumb{
+    //     -webkit-appearance: none;
+    //     appearance: none;
+    //     width: 27px;
+    //     height: 27px;
+    //     border-radius: 50%; 
     
-    .dark-mode{
-        margin-left: .5em;
-        font-size: .8em;
-    }
+    //     background: #fff;
+    //     box-shadow: 0px 2px 2px rgba(0, 0, 0, 24%);
+    //     cursor: pointer;
+    // }
+    
+    // .dark-mode{
+    //     margin-left: .5em;
+    //     font-size: .8em;
+    // }
 }
 
 .container{
@@ -119,7 +119,7 @@ header{
     .img-div img{
         width: 100%;
         box-sizing: border-box;
-        height: 15em;
+        height: 20em;
     }
 }
 
@@ -170,18 +170,22 @@ header{
     .form{
         width: 50%;
 
+        @extend .flex-center;
+
+        flex-direction: column;
+
         .text-login{
             margin: 1em 0;
         }
 
-        .div-cpf, .div-name{
+        .div-cpf, .div-name, .div-birth-date{
             @extend .flex-center;
 
             flex-direction: row;
-            margin-bottom: 1.7em;
+            margin-bottom: 1em;
         }
 
-        .div-cpf-icon, .div-password-icon, .div-name-icon{
+        .div-cpf-icon, .div-name-icon, .div-birth-date-icon, .div-password-icon{
             width: 1.5em;
             height: 1.5em;
             background-color: $red;
@@ -191,13 +195,13 @@ header{
             border-radius: 5px 0px 0px 5px;
         }
 
-        .div-cpf-icon, .div-password-icon{
+        .div-cpf-icon, .div-name-icon, .div-birth-date-icon, .div-password-icon{
             i{
                 filter: invert(100%);
             }
         }
 
-        #cpf, #name, #password, #password-repeat{
+        #cpf, #name, #birth-date, #password, #password-repeat{
             width: 17em;
             height: 2.7em;
             border: 0;
@@ -208,13 +212,13 @@ header{
             border-radius: 0px 5px 5px 0px;
         }
 
-        #cpf::placeholder, #name::placeholder, #password::placeholder, #password-repeat::placeholder{
+        #cpf::placeholder, #name::placeholder, #birth-date::placeholder, #password::placeholder, #password-repeat::placeholder{
             color: $offWhite;
             font-size: 1.2em;
         }
 
         .div-password{
-            margin-bottom: 1em;
+            margin-bottom: .7em;
             
             @extend .flex-center;
 
@@ -224,7 +228,6 @@ header{
                 @extend .flex-center;
 
                 flex-direction: row;
-                margin-bottom: .7em;
             }
         }
 
@@ -263,32 +266,6 @@ header{
             }
         }
 
-        .div-hr-form{
-            @extend .flex-center;
-
-            .hr-form{
-                width: 200px; //must change for 'em'
-            }
-        }
-
-        .sign-up{
-            .sign-up-with{
-                text-decoration: none;
-                color: $black;
-                font-size: .7em;
-            }
-
-            .social-sign-up{
-                width: 5em;
-                margin-top: .5em;
-                margin-bottom: .5em;
-            }
-
-            .or{
-                font-size: .6em;
-            }
-        }
-
         .div-password-r-text{
             @extend .flex-center;
 
@@ -300,7 +277,6 @@ header{
 }
 
 .grid-about-us{
-    width: 100vw;
     margin-top: 1em;
     box-sizing: border-box;
 
@@ -362,17 +338,48 @@ header{
     height: 90vh;
 
     @extend .flex-center;
+    flex-direction: column;
 
     box-sizing: border-box;
 
+    .logout{
+        width: 65%;
+        box-sizing: border-box;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: 1rem;
+        
+        a{
+            color: $black;
+            text-decoration: none;
+
+            transition: .2s;
+
+            &:hover{
+                transform: scale(1.1, 1.1);
+            }
+        }
+    }
+
     #profile-card-section{
-        width: 80%;
+        width: 65%;
         height: 80%;
         box-sizing: border-box;
     
-        background-color: $grey;
+        background-color: $lighterRed;
     
-        @include box-shadow(rgba(0, 0, 0, 0.2));
+        @include box-shadow(rgba(0, 0, 0, 0.4));
+
+        transition: .4s;
+
+        &:hover{
+            @include box-shadow-button(rgba(0, 0, 0, 0.4));
+
+            transform: scale(1.01, 1.01);
+        }
     
         @extend .flex-center;
 
@@ -413,7 +420,7 @@ header{
                 }
             }
 
-            .profile-information{
+            .profile-informations{
                 width: 100%;
 
                 div{
@@ -424,34 +431,145 @@ header{
     }
 }
 
-footer{
-    width: 100%;
-    background-color: $red;
-    color: $offWhite;
+#Footer{
+    margin-top: 2rem;
 
-    box-sizing: border-box;
+    background-color: $red;
+    width: 100%;
 
     display: grid;
     place-items: center;
-    grid-template-columns: 1fr 1fr;
 
-    .contact{
-        .informations{
-            display: flex;
-            flex-direction: column;
+    color: $offWhite;
 
-            margin-bottom: 1rem;
+    #informations{
+        width: 100%;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        margin: 35px 15px;
+
+        justify-content: space-between;
+
+        div{
+            display: grid;
+            place-items: center;
+            text-align: center;
+
+            #title{
+                text-transform: uppercase;
+                font-weight: 500;
+            }
         }
     }
 
-    iframe{
-        width: 15rem;
-        height: 6rem;
+    hr{
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    .footer-map{
-        display: grid;
-        place-items: center;
-        margin-bottom: 1rem;
+    #copyright{
+        margin: 40px;
+    }
+}
+
+.appointments-page{
+    width: auto;
+    height: 90vh;
+
+    @extend .flex-center;
+    justify-content: space-between;
+
+    margin: 0 5rem;
+
+    box-sizing: border-box;
+
+    .appointments-controller-section{
+        padding: 3rem;
+        
+        width: 60%;
+        height: 80%;
+        background-color: $lighterRed;
+
+        box-sizing: border-box;
+
+        border-radius: 10px;
+    }
+
+    .book-appointments-text-section{
+        @extend .flex-center;
+        
+        width: 30%;
+        height: 80%;
+        background-color: $red;
+        color: $offWhite;
+
+        box-sizing: border-box;
+
+        border-radius: 10px;
+
+        text-decoration: none;
+
+    }
+}
+
+.book-appointments-page{
+    width: auto;
+    height: 90vh;
+
+    @extend .flex-center;
+
+    margin: 0 5rem;
+
+    box-sizing: border-box;
+
+    .book-appointments{
+        width: 65%;
+        height: 80%;
+        box-sizing: border-box;
+        
+        background-color: $offWhite;
+        
+        @include box-shadow(rgba(0, 0, 0, 0.4));
+
+        border-radius: 10px;
+
+        padding: 3.5rem;
+
+        form{
+            margin-top: 1.5rem;
+        }
+
+        .div-clinic, .div-doctor, .div-state, .div-city{
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 1em;
+            
+            .div-clinic-icon, .div-doctor-icon, .div-state-icon, .div-city-icon{
+                width: 1.5em;
+                height: 1.5em;
+                background-color: $red;
+                
+                @extend .flex-center;
+            
+                border-radius: 5px 0px 0px 5px;
+
+                i{
+                    filter: invert(100%);
+                }
+            }
+
+            #clinic, #doctor, #state, #city{
+                width: 15rem;
+                height: 2.7em;
+                border: 0;
+                background-color: $lighterRed;
+                color: $offWhite;
+                padding-left: 1em;
+            
+                border-radius: 0px 5px 5px 0px;
+            }
+        } 
     }
 }

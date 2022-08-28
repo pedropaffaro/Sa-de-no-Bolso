@@ -16,9 +16,9 @@
         <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     </head>
 
-    <body id="page" onload="darkTheme()">
+    <body id="page" onload="">
         <div class="container-formulario">
-            <form class="form-cadastro" method="POST" action="../../../controller/Patient-Login.php">
+            <form class="form-cadastro" method="POST" onsubmit="handleSignInValidation(event);">
                 <div class="img-formulario">
                     <img src="../../src/images/sign-in-img.svg" alt="">
                 </div>
@@ -27,7 +27,7 @@
                     <h3 class="text-login" align="center">LOGIN</h3>
                     <div class="div-cpf">
                         <div class="div-cpf-icon"><i class="fa-regular fa-user"></i></div>
-                        <input type="text" name="cpf" id="cpf" placeholder="CPF">
+                        <input type="text" name="cpf" class="cpf" id="cpf" placeholder="CPF">
                     </div>
                     <div class="div-password">
                         <div class="div-password-text">
@@ -43,25 +43,58 @@
                         </div>
                     </div>
                     <div class="div-login">
-                        <input type="submit" id="login" value="LOGIN" onclick="formValidation()">
-                    </div>
-                    <div class="div-hr-form">
-                        <hr class="hr-form">
-                    </div>
-                    <div align="center" class="sign-up">
-                        <a href="" class="sign-up-with">SIGN UP WITH</a>
-                        <div class="social-sign-up">
-                            <div id="buttonDiv"></div>
-                        </div>
-                        <div class="or">
-                            OR
-                        </div>
-                        <a href="signup.php" class="sign-up-with">SIGN UP</a>
+                        <input type="submit" id="login" value="LOGIN" onclick="handleRememberMe()">
                     </div>
                 </div>
             </form>
         </div>
 
         <script src="../scripts/script.js"></script>
+        <script src="../scripts/formValidation.js"></script>
+        <script src="../scripts/rememberMe.js"></script>
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="../scripts/jquery.mask.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('#cpf').mask('000.000.000-00');
+            });
+        </script>
     </body>
 </html>
+
+<?php
+    session_start();
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        try{
+            include('../../../database/connection.php');
+
+            $cpf = $_POST['cpf'];
+            $password = $_POST['password'];
+            $password = base64_encode($password);
+
+            $stmt = $pdo->prepare("select * from Patient where cpf = :cpf and patientPassword = :password");
+            $stmt->bindParam(':cpf', $cpf);
+            $stmt->bindParam(':password', $password);
+            $stmt->execute();
+
+            $rows = $stmt->rowCount();
+
+            if($rows > 0){
+                $_SESSION["isLogged"] = 1;
+                $_SESSION["cpf"] = $cpf;
+ 
+                header('location:profile-page.php');
+            }
+            else{
+                echo "<span>Patient doesn't exists!</span>";
+            }  
+        }
+        catch(PDOException $e){
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+?>

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +18,7 @@
     <body id="page" onload="buttonLogin(); buttonSignUp(); darkTheme()">
 
         <?php
-            include("../../src/components/menu.html")
+            include("../../src/components/menu.php")
         ?>
 
         <section class="grid-about-us">
@@ -22,7 +26,7 @@
                 <div>
                     <h2>About Us</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Nós somos um grupo constituído por cinco alunos do 3° ano do Curso Técnico de Informática do COTIL, e para o nosso TCC resolvemos criar uma plataforma para facilitar o agendamento de consultas médicas, além de criar uma carteira do paciente, a qual mostra os dados do usuário e todas as suas patologias e/ou suas deficiências.
                     </p>
                 </div>
             </div>
@@ -30,7 +34,9 @@
                 <div>
                     <h2>Contact Us</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Email: contato@saudenobolso.com
+                        <br>
+                        Telefone: (19) 98998-9789
                     </p>
                 </div>
             </div>
@@ -38,7 +44,7 @@
                 <div>
                     <h2>Project</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Trabalho de conclusão de curso - 2022 - Colégio Técnico de Limeira (COTIL).
                     </p>
                 </div>
             </div>

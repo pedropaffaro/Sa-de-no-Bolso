@@ -4,7 +4,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.flex-center, .profile-page #profile-card-section, .profile-page, .container-formulario .form .div-password-r-text, .container-formulario .form .div-hr-form, .container-formulario .form .div-login, .container-formulario .form .div-password .div-password-text, .container-formulario .form .div-password, .container-formulario .form .div-cpf-icon, .container-formulario .form .div-password-icon, .container-formulario .form .div-cpf, .container-formulario, .menu .div-hr, .menu li {
+.flex-center, .book-appointments-page .book-appointments .div-clinic .div-clinic-icon, .book-appointments-page .book-appointments .div-clinic .div-doctor-icon, .book-appointments-page .book-appointments .div-clinic .div-state-icon, .book-appointments-page .book-appointments .div-clinic .div-city-icon, .book-appointments-page .book-appointments .div-doctor .div-clinic-icon, .book-appointments-page .book-appointments .div-doctor .div-doctor-icon, .book-appointments-page .book-appointments .div-doctor .div-state-icon, .book-appointments-page .book-appointments .div-doctor .div-city-icon, .book-appointments-page .book-appointments .div-state .div-clinic-icon, .book-appointments-page .book-appointments .div-state .div-doctor-icon, .book-appointments-page .book-appointments .div-state .div-state-icon, .book-appointments-page .book-appointments .div-state .div-city-icon, .book-appointments-page .book-appointments .div-city .div-clinic-icon, .book-appointments-page .book-appointments .div-city .div-doctor-icon, .book-appointments-page .book-appointments .div-city .div-state-icon, .book-appointments-page .book-appointments .div-city .div-city-icon, .book-appointments-page, .appointments-page .book-appointments-text-section, .appointments-page, .profile-page #profile-card-section, .profile-page, .container-formulario .form .div-password-r-text, .container-formulario .form .div-login, .container-formulario .form .div-password .div-password-text, .container-formulario .form .div-password, .container-formulario .form .div-cpf-icon, .container-formulario .form .div-name-icon, .container-formulario .form .div-birth-date-icon, .container-formulario .form .div-password-icon, .container-formulario .form .div-cpf, .container-formulario .form .div-name, .container-formulario .form .div-birth-date, .container-formulario .form, .container-formulario, .menu .div-hr, .menu li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,7 +73,7 @@ header ul {
   line-height: 4em;
   height: 70%;
 }
-.menu #btn-login, .menu #btn-signup {
+.menu #btn-login, .menu #btn-signup, .menu #btn-appointment {
   width: 5em;
   height: 2em;
   margin-top: 0;
@@ -88,32 +88,14 @@ header ul {
   cursor: pointer;
   transition: 0.2s;
 }
+.menu #btn-login:hover, .menu #btn-signup:hover, .menu #btn-appointment:hover {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.144);
+}
 .menu #btn-signup {
   width: 6em;
 }
-.menu #switch {
-  -webkit-appearance: none;
-  width: 51px;
-  height: 27px;
-  background-color: #e9e9ea;
-  border-radius: 16px;
-  padding: 2px;
-  margin-left: 1em;
-  transition: 0.2s;
-}
-.menu #switch::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 27px;
-  height: 27px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24);
-  cursor: pointer;
-}
-.menu .dark-mode {
-  margin-left: 0.5em;
-  font-size: 0.8em;
+.menu #btn-appointment {
+  width: 8em;
 }
 
 .container {
@@ -127,7 +109,7 @@ header ul {
 .container .img-div img {
   width: 100%;
   box-sizing: border-box;
-  height: 15em;
+  height: 20em;
 }
 
 .section {
@@ -152,6 +134,9 @@ header ul {
   font-size: 1em;
   cursor: pointer;
   transition: 0.2s;
+}
+.section #btn-marque-agora:hover {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.26);
 }
 
 .container-formulario {
@@ -178,24 +163,25 @@ header ul {
 }
 .container-formulario .form {
   width: 50%;
+  flex-direction: column;
 }
 .container-formulario .form .text-login {
   margin: 1em 0;
 }
-.container-formulario .form .div-cpf {
+.container-formulario .form .div-cpf, .container-formulario .form .div-name, .container-formulario .form .div-birth-date {
   flex-direction: row;
-  margin-bottom: 1.7em;
+  margin-bottom: 1em;
 }
-.container-formulario .form .div-cpf-icon, .container-formulario .form .div-password-icon {
+.container-formulario .form .div-cpf-icon, .container-formulario .form .div-name-icon, .container-formulario .form .div-birth-date-icon, .container-formulario .form .div-password-icon {
   width: 1.5em;
   height: 1.5em;
   background-color: #8c1b2f;
   border-radius: 5px 0px 0px 5px;
 }
-.container-formulario .form .div-cpf-icon i, .container-formulario .form .div-password-icon i {
+.container-formulario .form .div-cpf-icon i, .container-formulario .form .div-name-icon i, .container-formulario .form .div-birth-date-icon i, .container-formulario .form .div-password-icon i {
   filter: invert(100%);
 }
-.container-formulario .form #cpf, .container-formulario .form #password, .container-formulario .form #password-repeat {
+.container-formulario .form #cpf, .container-formulario .form #name, .container-formulario .form #birth-date, .container-formulario .form #password, .container-formulario .form #password-repeat {
   width: 17em;
   height: 2.7em;
   border: 0;
@@ -204,17 +190,16 @@ header ul {
   padding-left: 1em;
   border-radius: 0px 5px 5px 0px;
 }
-.container-formulario .form #cpf::placeholder, .container-formulario .form #password::placeholder, .container-formulario .form #password-repeat::placeholder {
+.container-formulario .form #cpf::placeholder, .container-formulario .form #name::placeholder, .container-formulario .form #birth-date::placeholder, .container-formulario .form #password::placeholder, .container-formulario .form #password-repeat::placeholder {
   color: #f8f8ff;
   font-size: 1.2em;
 }
 .container-formulario .form .div-password {
-  margin-bottom: 1em;
+  margin-bottom: 0.7em;
   flex-direction: column;
 }
 .container-formulario .form .div-password .div-password-text {
   flex-direction: row;
-  margin-bottom: 0.7em;
 }
 .container-formulario .form .texts-password {
   font-size: 0.9em;
@@ -238,22 +223,6 @@ header ul {
 .container-formulario .form .div-login #login:hover, .container-formulario .form .div-login #signup:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
 }
-.container-formulario .form .div-hr-form .hr-form {
-  width: 200px;
-}
-.container-formulario .form .sign-up .sign-up-with {
-  text-decoration: none;
-  color: #000;
-  font-size: 0.7em;
-}
-.container-formulario .form .sign-up .social-sign-up {
-  width: 5em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-.container-formulario .form .sign-up .or {
-  font-size: 0.6em;
-}
 .container-formulario .form .div-password-r-text {
   flex-direction: row;
   margin-top: 1em;
@@ -261,7 +230,6 @@ header ul {
 }
 
 .grid-about-us {
-  width: 100vw;
   margin-top: 1em;
   box-sizing: border-box;
   padding: 0 2em;
@@ -300,15 +268,37 @@ header ul {
 .profile-page {
   width: auto;
   height: 90vh;
+  flex-direction: column;
   box-sizing: border-box;
 }
+.profile-page .logout {
+  width: 65%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.profile-page .logout a {
+  color: #000;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.profile-page .logout a:hover {
+  transform: scale(1.1, 1.1);
+}
 .profile-page #profile-card-section {
-  width: 80%;
+  width: 65%;
   height: 80%;
   box-sizing: border-box;
-  background-color: #d3d3d3;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: rgba(140, 27, 48, 0.4745098039);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  transition: 0.4s;
   border-radius: 10px;
+}
+.profile-page #profile-card-section:hover {
+  box-shadow: 0px 7px 29px 0px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01, 1.01);
 }
 .profile-page #profile-card-section #profile-card {
   width: 100%;
@@ -335,6 +325,112 @@ header ul {
   margin-top: 1em;
   width: 90%;
   text-align: center;
+}
+.profile-page #profile-card-section #profile-card .profile-informations {
+  width: 100%;
+}
+.profile-page #profile-card-section #profile-card .profile-informations div {
+  margin-bottom: 1rem;
+}
+
+#Footer {
+  margin-top: 2rem;
+  background-color: #8c1b2f;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  color: #f8f8ff;
+}
+#Footer #informations {
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 35px 15px;
+  justify-content: space-between;
+}
+#Footer #informations div {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+#Footer #informations div #title {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+#Footer hr {
+  width: 100%;
+  box-sizing: border-box;
+}
+#Footer #copyright {
+  margin: 40px;
+}
+
+.appointments-page {
+  width: auto;
+  height: 90vh;
+  justify-content: space-between;
+  margin: 0 5rem;
+  box-sizing: border-box;
+}
+.appointments-page .appointments-controller-section {
+  padding: 3rem;
+  width: 60%;
+  height: 80%;
+  background-color: rgba(140, 27, 48, 0.4745098039);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.appointments-page .book-appointments-text-section {
+  width: 30%;
+  height: 80%;
+  background-color: #8c1b2f;
+  color: #f8f8ff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.book-appointments-page {
+  width: auto;
+  height: 90vh;
+  margin: 0 5rem;
+  box-sizing: border-box;
+}
+.book-appointments-page .book-appointments {
+  width: 65%;
+  height: 80%;
+  box-sizing: border-box;
+  background-color: #f8f8ff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 3.5rem;
+}
+.book-appointments-page .book-appointments form {
+  margin-top: 1.5rem;
+}
+.book-appointments-page .book-appointments .div-clinic, .book-appointments-page .book-appointments .div-doctor, .book-appointments-page .book-appointments .div-state, .book-appointments-page .book-appointments .div-city {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+}
+.book-appointments-page .book-appointments .div-clinic .div-clinic-icon, .book-appointments-page .book-appointments .div-clinic .div-doctor-icon, .book-appointments-page .book-appointments .div-clinic .div-state-icon, .book-appointments-page .book-appointments .div-clinic .div-city-icon, .book-appointments-page .book-appointments .div-doctor .div-clinic-icon, .book-appointments-page .book-appointments .div-doctor .div-doctor-icon, .book-appointments-page .book-appointments .div-doctor .div-state-icon, .book-appointments-page .book-appointments .div-doctor .div-city-icon, .book-appointments-page .book-appointments .div-state .div-clinic-icon, .book-appointments-page .book-appointments .div-state .div-doctor-icon, .book-appointments-page .book-appointments .div-state .div-state-icon, .book-appointments-page .book-appointments .div-state .div-city-icon, .book-appointments-page .book-appointments .div-city .div-clinic-icon, .book-appointments-page .book-appointments .div-city .div-doctor-icon, .book-appointments-page .book-appointments .div-city .div-state-icon, .book-appointments-page .book-appointments .div-city .div-city-icon {
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #8c1b2f;
+  border-radius: 5px 0px 0px 5px;
+}
+.book-appointments-page .book-appointments .div-clinic .div-clinic-icon i, .book-appointments-page .book-appointments .div-clinic .div-doctor-icon i, .book-appointments-page .book-appointments .div-clinic .div-state-icon i, .book-appointments-page .book-appointments .div-clinic .div-city-icon i, .book-appointments-page .book-appointments .div-doctor .div-clinic-icon i, .book-appointments-page .book-appointments .div-doctor .div-doctor-icon i, .book-appointments-page .book-appointments .div-doctor .div-state-icon i, .book-appointments-page .book-appointments .div-doctor .div-city-icon i, .book-appointments-page .book-appointments .div-state .div-clinic-icon i, .book-appointments-page .book-appointments .div-state .div-doctor-icon i, .book-appointments-page .book-appointments .div-state .div-state-icon i, .book-appointments-page .book-appointments .div-state .div-city-icon i, .book-appointments-page .book-appointments .div-city .div-clinic-icon i, .book-appointments-page .book-appointments .div-city .div-doctor-icon i, .book-appointments-page .book-appointments .div-city .div-state-icon i, .book-appointments-page .book-appointments .div-city .div-city-icon i {
+  filter: invert(100%);
+}
+.book-appointments-page .book-appointments .div-clinic #clinic, .book-appointments-page .book-appointments .div-clinic #doctor, .book-appointments-page .book-appointments .div-clinic #state, .book-appointments-page .book-appointments .div-clinic #city, .book-appointments-page .book-appointments .div-doctor #clinic, .book-appointments-page .book-appointments .div-doctor #doctor, .book-appointments-page .book-appointments .div-doctor #state, .book-appointments-page .book-appointments .div-doctor #city, .book-appointments-page .book-appointments .div-state #clinic, .book-appointments-page .book-appointments .div-state #doctor, .book-appointments-page .book-appointments .div-state #state, .book-appointments-page .book-appointments .div-state #city, .book-appointments-page .book-appointments .div-city #clinic, .book-appointments-page .book-appointments .div-city #doctor, .book-appointments-page .book-appointments .div-city #state, .book-appointments-page .book-appointments .div-city #city {
+  width: 15rem;
+  height: 2.7em;
+  border: 0;
+  background-color: rgba(140, 27, 48, 0.4745098039);
+  color: #f8f8ff;
+  padding-left: 1em;
+  border-radius: 0px 5px 5px 0px;
 }
 
 /*# sourceMappingURL=style.css.map */
